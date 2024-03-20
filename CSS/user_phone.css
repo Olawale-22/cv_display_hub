@@ -1,0 +1,288 @@
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url(../font/IBMPlexMono-ExtraLight.ttf);
+}
+
+.side-heading {
+    font-size: small;
+    color: #8b8e9f;
+    /* letter-spacing: .3px; */
+    /* padding: .56rem .62rem .42rem; */
+    margin-left: 40%;
+    margin-bottom: 0;
+    opacity: 0; /* Start with 0 opacity (invisible) */
+    animation: fadeAnimation 20s ease-in-out infinite; /* Apply the fade animation with a longer duration */
+}
+
+#margeens {
+    margin-top: 4%;
+}
+
+.trows {
+    margin-bottom: 5%;
+}
+
+@keyframes fadeAnimation {
+
+    0%, 20% {
+      opacity: 0; /* Fade in slowly from 0 opacity */
+    }
+
+    40%, 60%{
+      opacity: 1; /* Fade out slowly to 1 opacity */
+    }
+
+    100% {
+        opacity: 0; /* Fade out slowly to 1 opacity */
+    }
+}
+
+html{
+    background-color: white;
+    /* background-color: aliceblue; */
+    color: black;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    gap: 0%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #00729c; /* Classic blue background */
+    color: white; /* White text color */
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.bbg {
+    /* background-image: url(../image/Fotor_AI.png); */
+    background-color: white;
+    margin-bottom: 5%;
+}
+
+.bienvenue{
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.redTxt{
+    color: #a3262b;
+}
+
+.deco_div{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    font-size: 1.5rem;
+    padding-bottom: -4px;
+    padding-top: 20px;
+    /* border-bottom: solid 1px hsl(0,0%,50%); */
+    cursor: pointer;
+}
+
+.padd {
+    margin-top: 4%;
+    margin-bottom: 3%;
+    justify-self: center;
+    align-self: center;
+    margin-left: -2%;
+    z-index: 1;
+}
+
+.wrapper_date{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+#horloge{
+    font-size: 2em;
+}
+
+.buttonEE{
+    color: white;
+    background-color: hsl(216, 96%, 52%);
+    border-radius: 2px;
+    border: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 15px;
+    font-weight: bold;
+    border:none;
+    width: 90px;
+    height: 70%;
+    cursor: pointer;
+}
+
+.table{
+    display: flex;
+    justify-content: center;
+}
+
+table, td, th {
+    border: 1px solid;
+}
+
+#logs{
+    border: solid 1px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td{
+    text-align: center;
+}
+
+p{
+    font-size: 0.8em;
+}
+
+.totalHours {
+    text-align: center;
+    padding: 10px 0;
+}
+
+div#byHours li {
+    list-style: none;
+    text-align: center;
+}
+
+aside {
+    display: block;
+}
+
+h3 {
+    text-align: center;
+}
+
+.button-container {
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+table {
+    margin-top: 10px;
+    width: 100%;
+    margin-bottom: 8%;
+    table-layout: fixed;
+}
+
+#margeens {
+    margin-top: 8%;
+    margin-bottom: 32%;
+}
+/* media query for the heart beat */
+
+.padd {
+    margin-top: 2%;
+    margin-bottom: 3%;
+    justify-self: center;
+    align-self: center;
+    margin-left: -2%;
+    z-index: 1;
+}
+
+header{
+    background-color: #00729c;
+    color: white; /* White text color */
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#button-container{
+    margin-top: 14%;
+}
+
+#backgroundDiv {
+    position: absolute;
+    z-index: 0;
+    width: 18%;
+    height: 3%;
+    justify-self: center;
+    border: none;
+    font-size: 0.5rem;
+    align-self: center;
+    margin-top: 4%;
+    margin-bottom: 5%;
+    margin-left: 40%;
+    border-radius: 50%;
+
+    /* Create the shadow effect */
+    box-shadow: 0 0 20px 10px rgba(220, 219, 219, 0.869);
+
+    /* Create the grey background */
+    background-color: rgba(215, 215, 215, 0.936);
+    opacity: 0.5;
+}
+
+.goldenTxt {
+    /* Shining dark golden color for the button */
+    background-image: linear-gradient(90deg, #825c31, #ffd700 100%, #825c31);
+    background-clip: text; /* Use the background image as text color */
+    -webkit-background-clip: text; /* For Safari compatibility */
+    color: transparent; /* Set the text color to transparent */
+}
+
+.gdTxt {
+    color: transparent;
+}
+
+.gdTxt:hover {
+    animation: blinkAnimation 2s ease-in-out infinite;
+    /* color: #fff; */
+    color: #ffd700;
+}
+
+@keyframes blinkAnimation {
+    0%, 100% {
+      color: transparent; /* Set text to transparent in these keyframes */
+    }
+    50% {
+      color: #ffd700; /* Set text to white in these keyframes */
+    }
+}
+
+.side-heading {
+    font-size: .75rem;
+    color: #8b8e9f;
+    letter-spacing: .3px;
+    /* padding: .56rem .62rem .42rem; */
+    margin-bottom: 0;
+    opacity: 0; /* Start with 0 opacity (invisible) */
+    animation: fadeAnimation 20s ease-in-out infinite; /* Apply the fade animation with a longer duration */
+}
+
+@keyframes blink {
+    0% {
+    opacity: 0;
+    }
+    50% {
+    opacity: 1;
+    }
+    100% {
+    opacity: 0;
+    }
+}
+
+.blink {
+    animation: blink 2s ease-in-out infinite;
+}
+
+.styleImg {
+    max-width: 80px;
+    max-height: 80px;
+    margin-top: -5%;
+    margin-right: 8%;
+    /* margin-bottom: 4%; */
+    float: right;
+    display: none;
+    border-radius: 50%;
+}

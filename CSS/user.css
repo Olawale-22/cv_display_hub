@@ -1,0 +1,311 @@
+/* Combined CSS for user.css and user_phone.css */
+
+/* Add a classic font for body text */
+html, body {
+    font-family: "Georgia", serif;
+  }
+  
+  /* Set classic background and text colors */
+  html {
+    background-color: #f5f5f5; /* Light gray background */
+    color: #333; /* Dark gray text color */
+  }
+
+.side-heading {
+    font-size: .22rem;
+    color: #8b8e9f;
+    letter-spacing: .3px;
+    padding: .56rem .62rem .42rem;
+    margin-bottom: 0;
+    opacity: 0; /* Start with 0 opacity (invisible) */
+    animation: fadeAnimation 20s ease-in-out infinite; /* Apply the fade animation with a longer duration */
+}
+
+@keyframes fadeAnimation {
+    0%, 20% {
+      opacity: 0; /* Fade in slowly from 0 opacity */
+    }
+    40%, 60%{
+      opacity: 1; /* Fade out slowly to 1 opacity */
+    }
+
+    100% {
+        opacity: 0; /* Fade out slowly to 1 opacity */
+    }
+}
+
+.floatright {
+    float: right;
+    margin-right: -21%;
+    padding-right: -5%;
+    padding-bottom: 2%;
+}
+
+.floatleft {
+    font-size: 10px;
+}
+
+.bienvenue{
+    /* font-family: 'IBM Plex Mono', monospace; */
+    font-family: "Roboto", sans-serif;
+    font-size: 4rem;
+    font-weight: 300;
+    margin-bottom: 40px;
+    margin-left: 80px;
+    margin-top: 20px;
+}
+
+.deco_div{
+    /* font-family: 'IBM Plex Mono', monospace; */
+    font-family: "Roboto", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    margin-left: 80px;
+    margin-top: 20px;
+    margin-right: 0%;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.password{
+    vertical-align: middle;
+    height: 100%;
+    cursor: pointer;
+}
+
+.deco{
+    vertical-align: middle;
+    height: 100%;
+    cursor: pointer;
+}
+
+.blink {
+    animation: blink 2s ease-in-out infinite;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    gap: 0%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #00729c; /* Classic blue background */
+    color: white; /* White text color */
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+  /* Button styles */
+  .buttonEE, .buttonRR {
+    color: white;
+    background-color: #a3262b; /* Classic red background */
+    border-radius: 5px;
+    border: none;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .buttonEE {
+    background-color: #00729c; /* Classic blue background */
+  }
+  
+  /* Table styles */
+  #logs {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #logs th, #logs td {
+    border: 1px solid #333;
+    border-radius: 5px 5px 0 0;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  /* Miscellaneous styles */
+  .trows {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .wrapper_date {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  
+  #horloge {
+    font-size: 2em;
+  }
+  
+  /* Add your other styles here... */
+  
+
+.padd {
+    margin-top: 4%;
+    margin-bottom: 3%;
+    justify-self: center;
+    align-self: center;
+    margin-left: -2%;
+    z-index: 1;
+}
+
+#backgroundDiv {
+    position: absolute;
+    z-index: 0;
+    width: 5%;
+    height: 3%;
+    font-size: .8rem;
+    justify-self: center;
+    border: none;
+    align-self: center;
+    margin-top: 1%;
+    margin-left: -2.2%;
+    border-radius: 50%;
+
+    /* Create the shadow effect */
+    box-shadow: 0 0 20px 10px rgba(220, 219, 219, 0.869);
+    
+    /* Create the grey background */
+    background-color: rgba(215, 215, 215, 0.936); 
+    opacity: 0.5;
+}
+
+@keyframes blink {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+}
+
+.blink {
+    animation: blink 2s ease-in-out infinite;
+}
+
+.connexion {
+    display: flex;
+    /* width: 160px; */
+    padding: 15px;
+    background-image: linear-gradient(90deg, #951e81, #e41019 100%, #96c225);
+    font-family: "Roboto", sans-serif;
+    height: auto;
+    /* min-height: 40px; */
+    display: flex;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    text-decoration: none;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    flex-direction: column;
+}
+
+.wrapper_date{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 40px;
+    margin-left: 80px;
+    gap: 40px;
+}
+
+#horloge{
+    font-size: 4em;
+    /* align-items: center;
+    display: flex;
+    justify-self: center; */
+}
+
+
+.goldenTxt {
+    /* Shining dark golden color for the button */
+    background-image: linear-gradient(90deg, #825c31, #ffd700 100%, #825c31);
+    background-clip: text; /* Use the background image as text color */
+    -webkit-background-clip: text; /* For Safari compatibility */
+    color: transparent; /* Set the text color to transparent */
+    
+}
+
+.gdTxt {
+    color: transparent;
+}
+
+.gdTxt:hover {
+    animation: blinkAnimation 2s ease-in-out infinite;
+    /* color: #fff; */
+    color: #ffd700;
+}
+
+@keyframes blinkAnimation {
+    0%, 100% {
+      color: transparent; /* Set text to transparent in these keyframes */
+    }
+    50% {
+      color: #ffd700; /* Set text to white in these keyframes */
+    }
+}
+
+.bbg {
+    /* background-image: url(../image/Fotor_AI.png); */
+    background-color: white;
+    margin-bottom: 5%;
+}
+
+.redBg{
+    background-color: #a3262b;
+}
+
+#margeens {
+    margin-top: 4%;
+}
+
+.styleImg {
+  width: 20%;
+  height: 20%;
+  margin-top: -3%;
+  margin-left: 6%; 
+  padding-bottom: 5px;
+  float: right;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+}
+
+.imgContainer {
+  float: right;
+  display: flex;
+  position: relative;
+}
+
+.uploadIcon {
+  cursor: pointer;
+  font-size: 24px;
+  position: absolute;
+  float: right;
+  bottom: 10px; /* Adjust this value to fit your design */
+  right: 25px; /* Adjust this value to fit your design */
+  transform: translate(-50%, -50%);
+}

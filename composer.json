@@ -1,0 +1,8 @@
+{
+    "name": "01TALENT_CV_HUB/Sulaiman",
+    "description": "01 Talent student CV website",
+    "require": {
+        "monolog/monolog": "^3.0",
+        "cboden/ratchet": "^0.4.4"
+    }
+}

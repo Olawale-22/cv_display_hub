@@ -1,0 +1,142 @@
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url(../font/IBMPlexMono-ExtraLight.ttf);
+}
+
+body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+html{
+    font-family: "IBM Plex Mono";
+    /* background-color: hsl(0,0%,16%); */
+    background-color: #0157b2;
+    color: white;
+}
+
+table{
+    width: 100%;
+}
+td{
+    text-align: center;
+}
+
+.label_student{
+    margin-left: 10px;
+}
+
+.hour{
+    border: solid;
+    width: 70%;
+}
+
+.info_download{
+    display: flex;
+    flex-direction: row;
+}
+.download{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 100px;
+}
+
+input{
+    height: 25px;
+    margin-bottom: 10px;
+}
+
+.form_add_user{
+    padding-right: 20px;
+}
+
+.add_log{
+    padding-left: 20px;
+}
+
+.edit_log {
+    padding: 0 20px;
+    border-right: solid gray 1px;
+    border-left: solid gray 1px;
+}
+
+.form_button{
+    line-height: 10%;
+    color: white;
+    /* background-color: hsl(216, 96%, 52%); */
+    background-color: #0157b2;
+    border-radius: 2px;
+    border: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 15px;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.blueButton {
+    background-color: #0157b2;
+}
+
+.download_button{
+    color: white;
+    background-color: hsl(216, 96%, 52%);
+    border-radius: 2px;
+    border: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 15px;
+    font-weight: 300;
+    border:none;
+    width: 160px;
+    height: 70%;
+    cursor: pointer;
+}
+
+.inline-forms {
+    display: flex;
+    border-top: solid gray 1px;
+    padding-top: 20px;
+}
+
+.edit_log form, .form_add_user form, .add_log form{
+	text-align:center
+}
+
+input[type="time"], input[type="date"]{
+	width: 100%;
+}
+
+/* Adapt formulaires to phone format */
+
+@media (max-width: 1000px) {
+    .inline-forms{
+        flex-direction: column;
+    }
+
+    .form_add_user{
+        padding:0 0 20px 0;
+    }
+
+    .add_log{
+        padding: 20px 0 0 0;
+    }
+
+    .edit_log {
+        padding: 20px 0;
+        border-top: solid gray 1px;
+        border-bottom: solid gray 1px;
+        border-left: none;
+        border-right: none;
+    }
+    
+}
+
+.hideIp{
+    display:none;
+}
