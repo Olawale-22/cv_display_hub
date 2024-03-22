@@ -10,7 +10,7 @@
 <html lang="fr">
   <head>
     <!-- Title -->
-    <title>Talent Hub || 01 </title>
+    <title>Talent Hub || 01CV </title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -29,7 +29,6 @@
         <!-- <img class="shift" src="https://images-ext-2.discordapp.net/external/F80oNdrR-7ZD1GpocVmhF_u3btJgS4RLOo_Zw6iUYSA/https/zone01rouennormandie.org/wp-content/uploads/2021/10/zone01-logo-rouen_normandie.png"> -->
 			<div class="brand text-center mb-3">
 				<img fetchpriority="high" decoding="async" class="logo" width="500" height="208" src="https://zone01rouennormandie.org/wp-content/uploads/2024/01/logo-01TN-Blanc.png" alt="Logo 01Talent Normandie Blanc" title="logo-01TN-Blanc" srcset="https://zone01rouennormandie.org/wp-content/uploads/2024/01/logo-01TN-Blanc.png 500w, https://zone01rouennormandie.org/wp-content/uploads/2024/01/logo-01TN-Blanc-300x125.png 300w" sizes="(max-width: 500px) 100vw, 500px" class="wp-image-15024">
-				<!-- <a href="#"><img class="logo" src="image/logo_csm.png" alt="logo"></a> -->
 				<div>
 					<h5 class="cold">Explorer → Découvrir → Interview l'internant → Décider → Complétion de la fiche Entreprise → Signature du contrat → Depot du dossier á zone01🤝</h5>
 				</div>
@@ -40,9 +39,7 @@
 	<table class="doc-loader">
 		<tr>
 			<td>
-				<!-- <img src="image/logo_csm.png" alt="Loading..." /> -->
 				<img fetchpriority="high" decoding="async" class="logo" width="500" height="208" src="https://zone01rouennormandie.org/wp-content/uploads/2024/01/logo-01TN-Blanc.png" alt="Logo 01Talent Normandie Blanc" title="logo-01TN-Blanc" srcset="https://zone01rouennormandie.org/wp-content/uploads/2024/01/logo-01TN-Blanc.png 500w, https://zone01rouennormandie.org/wp-content/uploads/2024/01/logo-01TN-Blanc-300x125.png 300w" sizes="(max-width: 500px) 100vw, 500px" class="wp-image-15024">
-				<!-- <img decoding="async" width="332" height="150" src="https://zone01rouennormandie.org/wp-content/uploads/2024/02/ZONE01-ROUEN-NORMANDIE-HORIZON-FOND-NOIR-BONNE-TAILLE.png" alt="Logo horizontal Zone01" srcset="https://zone01rouennormandie.org/wp-content/uploads/2024/02/ZONE01-ROUEN-NORMANDIE-HORIZON-FOND-NOIR-BONNE-TAILLE.png 332w, https://zone01rouennormandie.org/wp-content/uploads/2024/02/ZONE01-ROUEN-NORMANDIE-HORIZON-FOND-NOIR-BONNE-TAILLE-300x136.png 300w" sizes="(max-width: 332px) 100vw, 332px" class="wp-image-15344"> -->
 			</td>
 		</tr>
 	</table>
@@ -54,12 +51,12 @@
 				<div class="input-wrapper">
 					<input type="text" class="nosubmit" id="searchBox" name="txtBox" onkeyup="search()" placeholder=" Quel profile recherchez-vous ?">
 				</div>
-				<div id="profileSelector" name="profile_id" class="button-wrapper">
-					<select class="filter-select">
+				<div class="button-wrapper">
+					<select id="profileSelector" name="profile_id" onchange="filterStudents()" class="filter-select"> <!-- onchange="filterByProfile()" -->
 					<option value="">Spécialisation</option>
 						<?php getProfile(); ?>
 					</select>
-					<select id="skillSelector" name="skill_id" class="filter-select">
+					<select id="skillSelector" name="skill_id" onchange="filterStudents()" class="filter-select"> <!-- onchange="filterBySkill()" -->
 						<option value="">Skills</option>
 						<?php getSkills() ?>
 					</select>
@@ -72,8 +69,9 @@
 						<option value="option5">Option 5</option>
 						<option value="option6">Option 6</option>
 					</select>
-					<select id="locationSelector" name="locate_sid" class="filter-select">
+					<select id="locationSelector" name="locate_sid" onchange="filterStudents()" class="filter-select"> <!-- onchange="filterLocation()" -->
 						<option value="">Lieu</option>
+						<option value="Tout la France">Tout la France</option>
 						<?php getLieu(); ?>
 					</select>
 				</div>
@@ -82,7 +80,6 @@
 		</div>
 		<div id="box">
 			<div class="not-found">
-				<!-- <p>No result found </p> -->
 				<p>AUCUN RÉSULTAT TROUVÉ</p>
 			</div>
 		<div class="content">
@@ -103,8 +100,8 @@
 
 						<div class="col-12 col-md-3 student-card">
 							<div class="card mb-3" id="borders">
+
 								<div class="card-body">
-									<!-- styleImage div creates dummy image space -->
 									<div>
 										<img id="uploadedImage" class="styleImg" src="https://via.placeholder.com/300x300?text=Profile+Picture" alt="Profile Picture" width="140" height="140">
 										<h3 class="space"><?= $promo['prenom'] ?> <br> <?= $promo['nom'] ?></h3>
@@ -113,15 +110,15 @@
 											<span class="btn small-btn"><?= $promo['profile_one'] ?></span>
 											<span class="btn small-btn"><?= $promo['profile_two'] ?></span>
 										</p>
-										<p>⚙️ <?= $promo['skill_one'] ?>, <?= $promo['skill_two'] ?>, <?= $promo['skill_three'] ?>, <?= $promo['skill_four'] ?></p>
+										<p id="skill_number">⚙️ <?= $promo['skill_one'] ?>, <?= $promo['skill_two'] ?>, <?= $promo['skill_three'] ?>, <?= $promo['skill_four'] ?></p>
 										<p>📍 Disponible pour travail á <span id="bold_text"><?= $promo['location'] ?><?= ($promo['anywhere'] == 1) ? ", Tout la France." : "." ?></span></p>
 										<p id="bold_text"> 📩 <?= $promo['mail'] ?></p>
-										<!-- <p><?= $promo['anywhere'] ?></p> -->
 										<button type="button" value="<?=$promo['id'];?>" class="viewPromoBtn btn btn-primary btn-sm">Vidéo 📹</button>
 										<button type="button" value="<?=$promo['id'];?>" class="editPromoBtn btn btn-primary btn-sm">Portfolio 🗒</button>
 										<button type="button" value="<?=$promo['id'];?>" class="deletePromoBtn btn btn-info btn-sm">Recommendation 🖊️</button>
 									<!-- </div> -->
 								</div>
+
 								<div class="container-fluid">
 									<div class="footer-content text-center small">
 										<p>Aller à <span class="intra" onclick="location.href='https://planning-campus-saint-marc.hyperplanning.fr/hp/'">l'espace planning du  CSM</span></p>
@@ -156,15 +153,6 @@
 			$('.main').fadeIn('slow');
 		});
 	});
-
-	// Add event listeners to the filter elements
-    document.getElementById("locationSelector").addEventListener("change", updateFilterdView);
-    document.getElementById("selectorStudent").addEventListener("change", updateFilterdView);
-    document.getElementById("selectorMonth").addEventListener("change", updateFilterdView);
-    document.getElementById("selectorYear").addEventListener("change", updateFilterdView);
-
-    // Initial fetch
-    updateFilteredView();
 	</script>
   </body>
 </html>

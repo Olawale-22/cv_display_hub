@@ -61,7 +61,7 @@ if (!isset($_SESSION['connected']) || !isset($_SESSION['admin']) || !$_SESSION['
 
 </head>
 <body>
-
+    
 <!-- Add Student -->
 <div class="modal fade" id="studentAddModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
