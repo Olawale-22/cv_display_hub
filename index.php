@@ -26,13 +26,12 @@
 
   <body class="up">
   <header>
-        <!-- <img class="shift" src="https://images-ext-2.discordapp.net/external/F80oNdrR-7ZD1GpocVmhF_u3btJgS4RLOo_Zw6iUYSA/https/zone01rouennormandie.org/wp-content/uploads/2021/10/zone01-logo-rouen_normandie.png"> -->
 			<div class="brand text-center mb-3">
 				<img fetchpriority="high" decoding="async" class="logo" width="500" height="208" src="https://zone01rouennormandie.org/wp-content/uploads/2024/01/logo-01TN-Blanc.png" alt="Logo 01Talent Normandie Blanc" title="logo-01TN-Blanc" srcset="https://zone01rouennormandie.org/wp-content/uploads/2024/01/logo-01TN-Blanc.png 500w, https://zone01rouennormandie.org/wp-content/uploads/2024/01/logo-01TN-Blanc-300x125.png 300w" sizes="(max-width: 500px) 100vw, 500px" class="wp-image-15024">
 				<div>
 					<h5 class="cold">Explorer → Découvrir → Interview l'internant → Décider → Complétion de la fiche Entreprise → Signature du contrat → Depot du dossier á zone01🤝</h5>
 				</div>
-				</div>			
+			</div>			
 	</header>
 
 	<!-- Preloader Gif -->
@@ -56,10 +55,12 @@
 					<option value="">Spécialisation</option>
 						<?php getProfile(); ?>
 					</select>
+					<i class="arrow down"></i>
 					<select id="skillSelector" name="skill_id" onchange="filterStudents()" class="filter-select"> <!-- onchange="filterBySkill()" -->
 						<option value="">Skills</option>
 						<?php getSkills() ?>
 					</select>
+					<i class="arrow down"></i>
 					<select id="availabilitySelector" name="dispo_sid" class="filter-select">
 						<option value="">Disponibilité</option>
 						<option value="option1">Option 1</option>
@@ -69,11 +70,13 @@
 						<option value="option5">Option 5</option>
 						<option value="option6">Option 6</option>
 					</select>
+					<i class="arrow down"></i>
 					<select id="locationSelector" name="locate_sid" onchange="filterStudents()" class="filter-select"> <!-- onchange="filterLocation()" -->
 						<option value="">Lieu</option>
 						<option value="Tout la France">Tout la France</option>
 						<?php getLieu(); ?>
 					</select>
+					<i class="arrow down"></i>
 				</div>
 
 			</div>
@@ -89,12 +92,16 @@
 				<div class="row">
 						<?php
 							$pdo = getPDO();
-							$query = "SELECT s.id, s.nom, s.prenom, s.location, s.anywhere, s.mail, p.profile_one, p.profile_two, d.skill_one, d.skill_two, d.skill_three, d.skill_four, COUNT(s.id) AS number_of_students FROM students s LEFT JOIN profiles p ON s.id = p.student_id LEFT JOIN skills d ON s.id = d.student_id GROUP BY p.id, s.nom ORDER BY p.id";
+							$query = "SELECT s.id, s.nom, s.prenom, s.location, s.anywhere, s.mail, p.profile_one, p.profile_two, d.skill_one, d.skill_two, d.skill_three, d.skill_four, u.image_path, COUNT(s.id) AS number_of_students FROM students s
+							LEFT JOIN profiles p ON s.id = p.student_id
+							LEFT JOIN skills d ON s.id = d.student_id
+							LEFT JOIN uploads u ON s.prenom = u.student_name
+							GROUP BY p.id, s.nom ORDER BY p.id";
 							$stmt = $pdo->query($query);
 							$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 							if(count($result) > 0)
 								{
-									foreach($result as $promo)
+									foreach($result as $display)
 									{
 						?>
 
@@ -103,25 +110,27 @@
 
 								<div class="card-body">
 									<div>
-										<img id="uploadedImage" class="styleImg" src="https://via.placeholder.com/300x300?text=Profile+Picture" alt="Profile Picture" width="140" height="140">
-										<h3 class="space"><?= $promo['prenom'] ?> <br> <?= $promo['nom'] ?></h3>
+										<!-- $$$$$$$$$$$******************###########################******************$$$$$$$$$$$$$$$$$$$**************** -->
+										<img alt="Profile Picture" width="140" height="140" class="styleImg" <?= ($display["image_path"] == NULL) ? 'id="uploadedImage" src="https://via.placeholder.com/300x300?text=Profile+Picture"' : 'src="' . "ibukun/". $display["image_path"] . '" alt="Uploaded Image"' ?>>
+
+										<h3 class="space"><?= $display['prenom'] ?> <br> <?= $display['nom'] ?></h3>
 									</div><br>
 										<p class="inline-buttons">
-											<span class="btn small-btn"><?= $promo['profile_one'] ?></span>
-											<span class="btn small-btn"><?= $promo['profile_two'] ?></span>
+											<span class="btn small-btn"><?= $display['profile_one'] ?></span>
+											<span class="btn small-btn"><?= $display['profile_two'] ?></span>
 										</p>
-										<p id="skill_number">⚙️ <?= $promo['skill_one'] ?>, <?= $promo['skill_two'] ?>, <?= $promo['skill_three'] ?>, <?= $promo['skill_four'] ?></p>
-										<p>📍 Disponible pour travail á <span id="bold_text"><?= $promo['location'] ?><?= ($promo['anywhere'] == 1) ? ", Tout la France." : "." ?></span></p>
-										<p id="bold_text"> 📩 <?= $promo['mail'] ?></p>
-										<button type="button" value="<?=$promo['id'];?>" class="viewPromoBtn btn btn-primary btn-sm">Vidéo 📹</button>
-										<button type="button" value="<?=$promo['id'];?>" class="editPromoBtn btn btn-primary btn-sm">Portfolio 🗒</button>
-										<button type="button" value="<?=$promo['id'];?>" class="deletePromoBtn btn btn-info btn-sm">Recommendation 🖊️</button>
+										<p id="skill_number">⚙️ <?= $display['skill_one'] ?>, <?= $display['skill_two'] ?>, <?= $display['skill_three'] ?>, <?= $display['skill_four'] ?></p>
+										<p>📍 Disponible pour travail á <span id="bold_text"><?= $display['location'] ?><?= ($display['anywhere'] == 1) ? ", Tout la France." : "." ?></span></p>
+										<p id="bold_text"> 📩 <?= $display['mail'] ?></p>
+										<button type="button" onclick="viewVideo('<?=$display['prenom'];?>')" class="viewPromoBtn btn btn-primary btn-sm">Vidéo 📹</button>
+										<button type="button" value="<?=$display['id'];?>" class="editPromoBtn btn btn-primary btn-sm">Portfolio 🗒</button>
+										<button type="button" value="<?=$display['id'];?>" class="deletePromoBtn btn btn-info btn-sm">Recommendation 🖊️</button>
 									<!-- </div> -->
 								</div>
 
 								<div class="container-fluid">
 									<div class="footer-content text-center small">
-										<p>Aller à <span class="intra" onclick="location.href='https://planning-campus-saint-marc.hyperplanning.fr/hp/'">l'espace planning du  CSM</span></p>
+										<p>Aller à <span class="intra" onclick="location.href='route123/reg.php'">l'espace planning du  CSM</span></p>
 									</div>
 								</div>
 							</div>

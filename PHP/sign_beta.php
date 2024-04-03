@@ -1,7 +1,6 @@
 <?php 
 	require_once('config.php');
 
-
 	if(isset($_POST['pseudo']) && isset($_POST['password'])  && isset($_POST['submit'])){
 		if(!empty($_POST['pseudo']) && !empty($_POST['password'])){
 			$username = valid_donnees($_POST['pseudo']);
