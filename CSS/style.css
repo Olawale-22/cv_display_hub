@@ -1,5 +1,5 @@
 @font-face {
-    font-family: "IBM Plex Mono";
+    font-family: "IBM Plex Sans", sans-serif;
     src: url(../font/IBMPlexMono-ExtraLight.ttf);
 }
 
@@ -15,6 +15,10 @@ p {
 
 #bold_text {
     font-weight:bold;
+}
+
+#tiny_text {
+    font-weight: lighter;
 }
 
 #little_span {
@@ -74,7 +78,7 @@ input[type="text"] {
     opacity: .9;
     padding: 10px;
     padding-left: 45px;
-    font-family: "Roboto", sans-serif;
+    font-family:  "IBM Plex Sans", sans-serif;
     box-sizing: border-box;
 }
 
@@ -82,17 +86,28 @@ input[type="text"] {
     width: 400px !important;
 }
 
+.card_width {
+    max-height: 850px;
+    width: 300px;
+    /* min-width: 320px; */
+}
+
+
 input[type="text"]:focus {
     box-shadow: 2px 2px 12px rgba(5, 88, 211, 0.65);
     border-radius: 5px;
 
-    font-family: "Roboto", sans-serif;
+    font-family: "IBM Plex Sans", sans-serif;
     padding-left: 45px;
 }
 
 .button-wrapper {
     text-align: center;
-    margin-top: 22px;
+    margin-top: 28px;
+}
+
+.first-wrapper {
+    margin-top: 3.3%;
 }
 
 /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
@@ -127,8 +142,12 @@ input[type="text"]:focus {
 .inline-buttons .btn {
     display: inline-block;
     background-color: #D3D3D3;
-    margin-top: 5px;
-    margin-right: 5px;
+    margin: 3px 5px;
+    
+}
+
+#btns {
+    margin: 2px 5px;
 }
 
 .small-btn {
@@ -150,8 +169,15 @@ html{
 
 .box {
     margin-left: 3%;
-    margin-right: 3%;
+    margin-right: 4%;
+    margin-top: 20px;
 }
+
+/* .min_marg {
+    
+    margin-left: 6%;
+    margin-right: 6%;
+} */
 
 #hunned {
     width: 100%;
@@ -166,7 +192,7 @@ html{
     margin-right: 200px;
     margin-left: 194px;
     font-size: 14px;
-    font-family: "Roboto", sans-serif;
+    font-family: "IBM Plex Sans", sans-serif;
     text-shadow: 20px 10px 20px black;
 }
 
@@ -181,6 +207,10 @@ header {
     padding: 40px;
     color: white;
     font-size: 130%;
+}
+
+#hidden {
+    display: none;
 }
 
 .bbg {
@@ -207,6 +237,20 @@ header {
         font-size: 4px;
     }
 
+    /* .card_width {
+        width: 330px;
+    }
+
+    .mid_box {
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+
+    .box {
+        margin-left: 2%;
+        margin-right: 2%;
+    } */
+
     .not-found {
         margin-left: 15em;
     }
@@ -227,6 +271,20 @@ header {
         font-size: 4px;
     }
 
+    /* .card_width {
+        width: 330px;
+    }
+
+    .mid_box {
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+
+    .box {
+        margin-left: 2%;
+        margin-right: 2%;
+    } */
+
     .not-found {
         margin-left: 15em;
     }
@@ -243,10 +301,26 @@ header {
         margin-top: 2%;
         height: 70px;
     }
+
     .cold {
         padding-top: 1%;
         font-size: 4px;
     }
+
+
+    /* .card_width {
+        width: 330px;
+    }
+
+    .mid_box {
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+
+    .box {
+        margin-left: 2%;
+        margin-right: 2%;
+    } */
 
     .not-found {
         margin-left: 15em;
@@ -259,7 +333,7 @@ header {
 }
 
 .title{
-    font-family: "Roboto", sans-serif;
+    font-family: 'IBM Plex Mono', monospace;
     float: right;
 }
 
@@ -316,7 +390,7 @@ label{
     width: 160px;
     padding: 15px;
     background-image: linear-gradient(90deg, #007bff, #00bcd4);
-    font-family: "Roboto", sans-serif;
+    font-family: 'IBM Plex Mono', monospace;
     height: auto;
     min-height: 40px;
     display: flex;
@@ -408,4 +482,8 @@ label{
     animation-name: colorful;
     animation-duration: 20s;
     animation-iteration-count: infinite;
+}
+
+body {
+    background-color: #000000;
 }

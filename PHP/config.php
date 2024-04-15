@@ -1,5 +1,4 @@
 <?php
-
 	// Fichier contenant toutes les config possible de l'application web
 
 	//If php version > 7.0.0, we put duration of SESSIONS to 1 day.
